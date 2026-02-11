@@ -1,8 +1,13 @@
-# Welcome to your Lovable project
+# A Story Written in Stars
 
-## Project info
+A poetic birthday tribute — a digital novel of love, honor, and destiny.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Tech Stack
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Lucide React
 
 ## How can I edit this code?
 

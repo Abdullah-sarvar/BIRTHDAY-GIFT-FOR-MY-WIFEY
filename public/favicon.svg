@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Elegant Quill -->
+  <path d="M75,20 C60,20 40,40 30,60 C25,75 20,85 20,85 L25,80 C30,85 40,80 50,70 C65,55 80,35 80,25 C80,20 78,20 75,20 Z M35,65 C40,60 55,45 65,35" 
+        fill="none" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M22,83 L28,77" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Tiny Sparkling Star -->
+  <path d="M45,75 L47,70 M47,70 L52,68 M52,68 L47,66 M47,66 L45,61 M45,61 L43,66 M43,66 L38,68 M38,68 L43,70 L45,75 Z" 
+        fill="#D4AF37" />
+</svg>
