@@ -30,59 +30,40 @@ const AudioPlayer = () => {
 
         const startPlayback = () => {
             if (audio.paused) {
-                // For mobile: ensure volume is set *after* play attempt or during it
                 audio.play()
                     .then(() => {
                         setIsPlaying(true);
                         fadeIn();
                     })
-                    .catch((err) => {
-                        console.warn("Playback attempt failed:", err);
-                    });
+                    .catch((err) => console.warn("Playback blocked:", err));
             }
         };
 
-        const handleInteraction = (e: Event) => {
-            console.log("Unlocking audio via:", e.type);
-            // On mobile, sometimes calling load() first helps "prime" the element
-            audio.load();
+        const handleInteraction = () => {
             startPlayback();
+            cleanup();
+        };
 
-            ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
+        const cleanup = () => {
+            ["click", "scroll", "touchstart", "touchend", "keydown", "unlock-audio"].forEach(type => {
                 document.removeEventListener(type, handleInteraction);
+                window.removeEventListener(type, handleInteraction);
             });
         };
 
-        // Add listeners for any user interaction
+        // Broad interaction listeners
         ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
             document.addEventListener(type, handleInteraction);
         });
 
-        // Try initial autoplay (muted often allows this)
-        audio.muted = true;
-        audio.play()
-            .then(() => {
-                console.log("Muted autoplay success");
-                // If muted autoplay works, we still want to unmute on interaction
-                const unmute = () => {
-                    audio.muted = false;
-                    fadeIn();
-                    ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
-                        document.removeEventListener(type, unmute);
-                    });
-                };
-                ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
-                    document.addEventListener(type, unmute);
-                });
-            })
-            .catch(() => {
-                console.log("Muted autoplay blocked, waiting for interaction");
-            });
+        // Explicit custom event for the Enter button
+        window.addEventListener("unlock-audio", handleInteraction);
+
+        // Initial attempt
+        startPlayback();
 
         return () => {
-            ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
-                document.removeEventListener(type, handleInteraction);
-            });
+            cleanup();
             if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
         };
     }, []);

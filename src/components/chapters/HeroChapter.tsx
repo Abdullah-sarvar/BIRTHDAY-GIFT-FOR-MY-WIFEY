@@ -4,16 +4,9 @@ import { useState, useEffect } from "react";
 const HeroChapter = ({ onEnter }: { onEnter: () => void }) => {
   const [entered, setEntered] = useState(false);
 
-  useEffect(() => {
-    if (!entered) {
-      document.body.classList.add("body-lock");
-    } else {
-      document.body.classList.remove("body-lock");
-    }
-    return () => document.body.classList.remove("body-lock");
-  }, [entered]);
-
   const handleEnter = () => {
+    // Trigger global audio unlock event
+    window.dispatchEvent(new CustomEvent("unlock-audio"));
     setEntered(true);
     setTimeout(onEnter, 1500);
   };
@@ -22,7 +15,7 @@ const HeroChapter = ({ onEnter }: { onEnter: () => void }) => {
     <AnimatePresence>
       {!entered && (
         <motion.section
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a] overflow-hidden h-[100dvh]"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a] overflow-hidden"
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         >
