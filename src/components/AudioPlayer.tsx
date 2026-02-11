@@ -1,6 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { Music, Music2 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const AudioPlayer = () => {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -90,54 +88,12 @@ const AudioPlayer = () => {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-[100]">
+        <div className="sr-only">
             <audio
                 ref={audioRef}
                 src="/song.mp3"
                 onEnded={handleEnded}
             />
-
-            <motion.button
-                onClick={togglePlay}
-                className="w-12 h-12 rounded-full bg-cream/80 backdrop-blur-md border border-gold/30 flex items-center justify-center shadow-lg text-emerald transition-all duration-500 hover:bg-gold/20 hover:border-gold"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                title={isPlaying ? "Mute Music" : "Play Music"}
-            >
-                <AnimatePresence mode="wait">
-                    {isPlaying ? (
-                        <motion.div
-                            key="playing"
-                            initial={{ opacity: 0, rotate: -45 }}
-                            animate={{ opacity: 1, rotate: 0 }}
-                            exit={{ opacity: 0, rotate: 45 }}
-                        >
-                            <Music className="w-5 h-5" />
-                        </motion.div>
-                    ) : (
-                        <motion.div
-                            key="paused"
-                            initial={{ opacity: 0, rotate: -45 }}
-                            animate={{ opacity: 1, rotate: 0 }}
-                            exit={{ opacity: 0, rotate: 45 }}
-                        >
-                            <Music2 className="w-5 h-5 opacity-40" />
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-
-                {/* Animated pulse when playing */}
-                {isPlaying && (
-                    <motion.div
-                        className="absolute inset-0 rounded-full border-2 border-gold/40"
-                        animate={{ scale: [1, 1.4], opacity: [0.5, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                    />
-                )}
-            </motion.button>
         </div>
     );
 };
