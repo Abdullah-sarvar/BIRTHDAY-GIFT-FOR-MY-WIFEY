@@ -68,14 +68,24 @@ const AudioPlayer = () => {
     const togglePlay = () => {
         if (audioRef.current) {
             if (isPlaying) {
-                // Simple pause, no fade out requested
                 audioRef.current.pause();
             } else {
-                audioRef.current.play().catch((err) => {
+                audioRef.current.play().then(() => {
+                    fadeIn();
+                }).catch((err) => {
                     console.error("Audio playback failed:", err);
                 });
             }
             setIsPlaying(!isPlaying);
+        }
+    };
+
+    const handleEnded = () => {
+        if (audioRef.current) {
+            audioRef.current.currentTime = 0;
+            audioRef.current.play().then(() => {
+                fadeIn();
+            }).catch((err) => console.warn("Loop playback failed:", err));
         }
     };
 
@@ -84,7 +94,7 @@ const AudioPlayer = () => {
             <audio
                 ref={audioRef}
                 src="/song.mp3"
-                loop
+                onEnded={handleEnded}
             />
 
             <motion.button
