@@ -40,7 +40,7 @@ const WhenIFoundYouChapter = () => {
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-3">باب دوم</h2>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">باب دوم</h2>
           <p className="font-serif-display text-xl text-brown-ink/70 italic">When I Found You</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
@@ -50,7 +50,7 @@ const WhenIFoundYouChapter = () => {
           {/* Timeline line */}
           <div className="absolute left-6 md:left-8 top-0 bottom-0 w-px bg-gold/30" />
 
-          <div className="space-y-12">
+          <div className="space-y-16">
             {memories.map((memory, i) => (
               <motion.div
                 key={i}

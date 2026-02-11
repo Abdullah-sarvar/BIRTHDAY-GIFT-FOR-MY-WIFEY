@@ -31,7 +31,7 @@ const PrayerChapter = () => {
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-3">باب چہارم</h2>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">باب چہارم</h2>
           <p className="font-serif-display text-xl text-brown-ink/70 italic">A Prayer for You</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
@@ -47,7 +47,7 @@ const PrayerChapter = () => {
         >
           <p className="font-urdu text-2xl text-emerald text-center mb-8">🤲</p>
 
-          <div className="space-y-6 mb-8">
+          <div className="space-y-10 mb-8">
             {duas.slice(0, revealedCount).map((dua, i) => (
               <motion.div
                 key={i}
@@ -56,7 +56,7 @@ const PrayerChapter = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <p className="font-urdu text-xl md:text-2xl text-emerald/90 mb-1">{dua.urdu}</p>
+                <p className="font-urdu text-xl md:text-2xl text-emerald/90 mb-4">{dua.urdu}</p>
                 <p className="font-serif-body text-brown-ink/50 italic text-xs">{dua.english}</p>
               </motion.div>
             ))}

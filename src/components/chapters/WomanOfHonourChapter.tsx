@@ -10,12 +10,12 @@ const tributeLines = [
 ];
 
 const loveNotes = [
-  { top: "15%", left: "10%", message: "You are my favourite dua come true." },
-  { top: "30%", left: "85%", message: "In every hardship, I find ease thinking of you." },
-  { top: "55%", left: "5%", message: "Your smile is my favourite ayah of this life." },
-  { top: "70%", left: "90%", message: "I thank Allah for writing you into my story." },
-  { top: "45%", left: "50%", message: "You are proof that Allah answers unspoken prayers." },
-  { top: "80%", left: "30%", message: "The best part of my day is knowing you exist." },
+  { top: "10%", left: "8%", message: "You are my favourite dua come true." },
+  { top: "25%", left: "88%", message: "In every hardship, I find ease thinking of you." },
+  { top: "50%", left: "4%", message: "Your smile is my favourite ayah of this life." },
+  { top: "65%", left: "92%", message: "I thank Allah for writing you into my story." },
+  { top: "85%", left: "15%", message: "You are proof that Allah answers unspoken prayers." },
+  { top: "88%", left: "75%", message: "The best part of my day is knowing you exist." },
 ];
 
 const WomanOfHonourChapter = () => {
@@ -41,7 +41,7 @@ const WomanOfHonourChapter = () => {
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-3">باب سوم</h2>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">باب سوم</h2>
           <p className="font-serif-display text-xl text-brown-ink/70 italic">The Woman of Honour</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>

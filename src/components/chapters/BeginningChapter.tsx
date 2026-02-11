@@ -47,13 +47,13 @@ const BeginningChapter = () => {
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-3">باب اوّل</h2>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">باب اوّل</h2>
           <p className="font-serif-display text-xl text-brown-ink/70 italic">The Beginning</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
 
         {/* Poetic lines */}
-        <div className="space-y-10 mb-20">
+        <div className="space-y-14 mb-20">
           {poeticLines.map((line, i) => (
             <motion.div
               key={i}
@@ -63,7 +63,7 @@ const BeginningChapter = () => {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: i * 0.2 }}
             >
-              <p className="font-urdu text-2xl md:text-3xl text-emerald/90 mb-2">{line.urdu}</p>
+              <p className="font-urdu text-2xl md:text-3xl text-emerald/90 mb-6">{line.urdu}</p>
               <p className="font-serif-body text-brown-ink/60 italic text-sm">{line.english}</p>
             </motion.div>
           ))}

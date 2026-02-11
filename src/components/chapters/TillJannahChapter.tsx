@@ -27,21 +27,33 @@ const TillJannahChapter = () => {
           transition={{ duration: 1.2 }}
           className="mb-12"
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-3">آخری باب</h2>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">آخری باب</h2>
           <p className="font-serif-display text-xl text-brown-ink/70 italic">Till Jannah</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
 
         {/* Main quote */}
-        <motion.p
-          className="font-urdu text-3xl md:text-4xl lg:text-5xl text-emerald leading-[2] mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.5, delay: 0.3 }}
-        >
-          ہر کہانی کا اختتام نہیں ہوتا، کچھ کہانیاں دعا بن جاتی ہیں
-        </motion.p>
+        {/* Main quote - Split into two lines for better spacing */}
+        <div className="mb-12 py-4">
+          <motion.p
+            className="font-urdu text-3xl md:text-4xl lg:text-5xl text-emerald leading-relaxed mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.3 }}
+          >
+            ہر کہانی کا اختتام نہیں ہوتا،
+          </motion.p>
+          <motion.p
+            className="font-urdu text-3xl md:text-4xl lg:text-5xl text-emerald leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, delay: 0.6 }}
+          >
+            کچھ کہانیاں دعا بن جاتی ہیں
+          </motion.p>
+        </div>
 
         <motion.p
           className="font-serif-body text-brown-ink/50 italic text-sm mb-12"
@@ -97,7 +109,7 @@ const TillJannahChapter = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 2, delay: 0.5 }}
               >
-                <p className="font-urdu text-3xl md:text-4xl gold-shimmer mb-4">
+                <p className="font-urdu text-3xl md:text-4xl gold-shimmer mb-2 pt-4 pb-12 leading-[2]">
                   جنّت تک، ان شاء اللہ
                 </p>
                 <p className="font-serif-display text-gold italic text-xl">

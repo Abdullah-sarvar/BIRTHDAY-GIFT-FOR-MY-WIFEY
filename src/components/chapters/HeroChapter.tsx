@@ -29,7 +29,7 @@ const HeroChapter = ({ onEnter }: { onEnter: () => void }) => {
 
           {/* Name in golden calligraphy */}
           <motion.h1
-            className="font-urdu text-5xl md:text-7xl gold-shimmer mb-6 z-10"
+            className="font-urdu text-5xl md:text-7xl gold-shimmer mb-8 z-10 pt-8 pb-24 leading-[2.2]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, delay: 1, ease: "easeOut" }}
