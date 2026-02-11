@@ -25,44 +25,64 @@ const AudioPlayer = () => {
     };
 
     useEffect(() => {
+        const audio = audioRef.current;
+        if (!audio) return;
+
         const startPlayback = () => {
-            if (audioRef.current && audioRef.current.paused) {
-                audioRef.current.play()
+            if (audio.paused) {
+                // For mobile: ensure volume is set *after* play attempt or during it
+                audio.play()
                     .then(() => {
                         setIsPlaying(true);
                         fadeIn();
                     })
-                    .catch((err) => console.warn("Playback failed:", err));
+                    .catch((err) => {
+                        console.warn("Playback attempt failed:", err);
+                    });
             }
         };
 
         const handleInteraction = (e: Event) => {
-            console.log("User interaction detected:", e.type);
+            console.log("Unlocking audio via:", e.type);
+            // On mobile, sometimes calling load() first helps "prime" the element
+            audio.load();
             startPlayback();
-            // Clean up listeners immediately after first successful interaction
-            document.removeEventListener("click", handleInteraction);
-            document.removeEventListener("scroll", handleInteraction);
-            document.removeEventListener("touchstart", handleInteraction);
-            document.removeEventListener("touchend", handleInteraction);
-            document.removeEventListener("keydown", handleInteraction);
+
+            ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
+                document.removeEventListener(type, handleInteraction);
+            });
         };
 
         // Add listeners for any user interaction
-        document.addEventListener("click", handleInteraction);
-        document.addEventListener("scroll", handleInteraction);
-        document.addEventListener("touchstart", handleInteraction);
-        document.addEventListener("touchend", handleInteraction);
-        document.addEventListener("keydown", handleInteraction);
+        ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
+            document.addEventListener(type, handleInteraction);
+        });
 
-        // Initial attempt (some browsers might allow it if site was previously interacted with)
-        startPlayback();
+        // Try initial autoplay (muted often allows this)
+        audio.muted = true;
+        audio.play()
+            .then(() => {
+                console.log("Muted autoplay success");
+                // If muted autoplay works, we still want to unmute on interaction
+                const unmute = () => {
+                    audio.muted = false;
+                    fadeIn();
+                    ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
+                        document.removeEventListener(type, unmute);
+                    });
+                };
+                ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
+                    document.addEventListener(type, unmute);
+                });
+            })
+            .catch(() => {
+                console.log("Muted autoplay blocked, waiting for interaction");
+            });
 
         return () => {
-            document.removeEventListener("click", handleInteraction);
-            document.removeEventListener("scroll", handleInteraction);
-            document.removeEventListener("touchstart", handleInteraction);
-            document.removeEventListener("touchend", handleInteraction);
-            document.removeEventListener("keydown", handleInteraction);
+            ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
+                document.removeEventListener(type, handleInteraction);
+            });
             if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
         };
     }, []);

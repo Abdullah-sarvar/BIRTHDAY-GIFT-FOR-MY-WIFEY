@@ -36,6 +36,14 @@
     @apply overflow-x-hidden;
     width: 100%;
     position: relative;
+    /* Prevent bouncy scrolling on iOS */
+    overscroll-behavior-y: none;
+  }
+
+  .body-lock {
+    overflow: hidden !important;
+    height: 100vh;
+    height: 100dvh;
   }
 }
 
