@@ -36,12 +36,14 @@ const AudioPlayer = () => {
             }
         };
 
-        const handleInteraction = () => {
+        const handleInteraction = (e: Event) => {
+            console.log("User interaction detected:", e.type);
             startPlayback();
-            // Clean up listeners immediately after first interaction
+            // Clean up listeners immediately after first successful interaction
             document.removeEventListener("click", handleInteraction);
             document.removeEventListener("scroll", handleInteraction);
             document.removeEventListener("touchstart", handleInteraction);
+            document.removeEventListener("touchend", handleInteraction);
             document.removeEventListener("keydown", handleInteraction);
         };
 
@@ -49,6 +51,7 @@ const AudioPlayer = () => {
         document.addEventListener("click", handleInteraction);
         document.addEventListener("scroll", handleInteraction);
         document.addEventListener("touchstart", handleInteraction);
+        document.addEventListener("touchend", handleInteraction);
         document.addEventListener("keydown", handleInteraction);
 
         // Initial attempt (some browsers might allow it if site was previously interacted with)
@@ -58,6 +61,7 @@ const AudioPlayer = () => {
             document.removeEventListener("click", handleInteraction);
             document.removeEventListener("scroll", handleInteraction);
             document.removeEventListener("touchstart", handleInteraction);
+            document.removeEventListener("touchend", handleInteraction);
             document.removeEventListener("keydown", handleInteraction);
             if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
         };

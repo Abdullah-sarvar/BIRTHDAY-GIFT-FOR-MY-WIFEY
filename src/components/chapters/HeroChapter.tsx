@@ -13,7 +13,7 @@ const HeroChapter = ({ onEnter }: { onEnter: () => void }) => {
     <AnimatePresence>
       {!entered && (
         <motion.section
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a]"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0a] overflow-hidden"
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         >
