@@ -5,8 +5,14 @@ const HeroChapter = ({ onEnter }: { onEnter: () => void }) => {
   const [entered, setEntered] = useState(false);
 
   const handleEnter = () => {
-    // Trigger global audio unlock event
-    window.dispatchEvent(new CustomEvent("unlock-audio"));
+    // Explicitly call the global unlock function synchronously
+    // This is the most reliable way for mobile browsers
+    // @ts-ignore
+    if (typeof window.playMusic === "function") {
+      // @ts-ignore
+      window.playMusic();
+    }
+
     setEntered(true);
     setTimeout(onEnter, 1500);
   };

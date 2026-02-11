@@ -39,19 +39,48 @@ const AudioPlayer = () => {
             }
         };
 
+        const stopPlayback = () => {
+            if (!audio.paused) {
+                fadeOut();
+            }
+        };
+
         const handleInteraction = () => {
             startPlayback();
-            cleanup();
+            cleanupInteractionListeners(); // Only clean up interaction listeners
+        };
+
+        const cleanupInteractionListeners = () => {
+            ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
+                document.removeEventListener(type, handleInteraction);
+            });
+            window.removeEventListener("unlock-audio", handleInteraction);
         };
 
         const cleanup = () => {
-            ["click", "scroll", "touchstart", "touchend", "keydown", "unlock-audio"].forEach(type => {
-                document.removeEventListener(type, handleInteraction);
-                window.removeEventListener(type, handleInteraction);
-            });
+            cleanupInteractionListeners();
+            if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
+            // @ts-ignore
+            delete window.playMusic;
+            // @ts-ignore
+            delete window.pauseMusic;
         };
 
-        // Broad interaction listeners
+        // Expose to window for direct, synchronous calling from other components
+        // @ts-ignore
+        window.playMusic = () => {
+            console.log("Global playMusic called");
+            startPlayback();
+            cleanupInteractionListeners(); // Clean up interaction listeners once played via global function
+        };
+
+        // @ts-ignore
+        window.pauseMusic = () => {
+            console.log("Global pauseMusic called");
+            stopPlayback();
+        };
+
+        // Broad interaction listeners as fallback
         ["click", "scroll", "touchstart", "touchend", "keydown"].forEach(type => {
             document.addEventListener(type, handleInteraction);
         });
@@ -64,7 +93,6 @@ const AudioPlayer = () => {
 
         return () => {
             cleanup();
-            if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
         };
     }, []);
 
