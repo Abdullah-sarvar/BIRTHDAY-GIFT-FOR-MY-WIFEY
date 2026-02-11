@@ -47,6 +47,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        ivory: "hsl(var(--ivory))",
+        cream: "hsl(var(--cream))",
+        "dusty-rose": "hsl(var(--dusty-rose))",
+        sage: "hsl(var(--sage))",
+        emerald: "hsl(var(--emerald))",
+        gold: "hsl(var(--gold))",
+        "gold-light": "hsl(var(--gold-light))",
+        "brown-ink": "hsl(var(--brown-ink))",
+        dawn: "hsl(var(--dawn))",
+        sunset: "hsl(var(--sunset))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -58,6 +68,11 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
+      fontFamily: {
+        urdu: ['"Noto Nastaliq Urdu"', 'serif'],
+        'serif-display': ['"Playfair Display"', 'serif'],
+        'serif-body': ['"Lora"', 'serif'],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -65,20 +80,12 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
