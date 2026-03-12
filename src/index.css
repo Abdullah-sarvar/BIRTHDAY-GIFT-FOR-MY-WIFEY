@@ -78,29 +78,27 @@
       0 0 20px hsl(var(--cream) / 0.4);
   }
 
-  /* Multi-layered shadows for deep contrast on colored text */
+  /* Open, vibrant halos for dark text (High Contrast) */
   .shadow-emerald {
     text-shadow: 
-      0 1px 2px hsl(var(--emerald) / 0.3),
-      0 2px 4px hsl(var(--emerald) / 0.2),
-      0 4px 8px hsl(var(--emerald) / 0.1),
-      0 0 15px hsl(var(--cream) / 0.5); /* Inner-glow to separate from dark colors */
+      0 0 4px hsl(var(--cream)),
+      0 0 10px hsl(var(--cream) / 0.8),
+      0 0 20px white;
   }
 
   .shadow-brown {
     text-shadow: 
-      0 1px 2px hsl(var(--brown-ink) / 0.3),
-      0 2px 4px hsl(var(--brown-ink) / 0.2),
-      0 4px 10px hsl(var(--brown-ink) / 0.1),
-      0 0 15px hsl(var(--cream) / 0.5);
+      0 0 4px hsl(var(--cream)),
+      0 0 12px hsl(var(--cream) / 0.7),
+      0 0 18px white;
   }
 
+  /* Deep ink etching for light text (High Contrast) */
   .shadow-gold {
     text-shadow: 
-      0 1px 3px hsl(var(--gold) / 0.4),
-      0 2px 6px hsl(var(--gold) / 0.2),
-      0 0 20px hsl(var(--gold) / 0.15),
-      0 0 12px hsl(var(--cream) / 0.4);
+      0 1px 2px hsl(var(--brown-ink) / 0.5),
+      0 2px 5px hsl(var(--brown-ink) / 0.3),
+      0 4px 12px hsl(var(--brown-ink) / 0.15);
   }
 }
 
