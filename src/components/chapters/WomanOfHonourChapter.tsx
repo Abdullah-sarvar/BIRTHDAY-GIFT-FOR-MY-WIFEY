@@ -41,8 +41,8 @@ const WomanOfHonourChapter = () => {
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">باب سوم</h2>
-          <p className="font-serif-display text-xl text-brown-ink/70 italic">The Woman of Honour</p>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12 shadow-emerald">باب سوم</h2>
+          <p className="font-serif-display text-xl text-brown-ink/70 italic shadow-brown">The Woman of Honour</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
 
@@ -51,7 +51,7 @@ const WomanOfHonourChapter = () => {
           {tributeLines.map((line, i) => (
             <motion.p
               key={i}
-              className="font-serif-body text-xl md:text-2xl text-brown-ink/80 text-center leading-relaxed italic"
+              className="font-serif-body text-xl md:text-2xl text-brown-ink/80 text-center leading-relaxed italic shadow-brown"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -131,7 +131,7 @@ const WomanOfHonourChapter = () => {
                 exit={{ opacity: 0, y: 10, scale: 0.9 }}
                 transition={{ duration: 0.4 }}
               >
-                <p className="font-serif-body text-brown-ink/80 text-xs italic text-center leading-relaxed">
+                <p className="font-serif-body text-brown-ink/80 text-xs italic text-center leading-relaxed shadow-brown">
                   {note.message}
                 </p>
               </motion.div>

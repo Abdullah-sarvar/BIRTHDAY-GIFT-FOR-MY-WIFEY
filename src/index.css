@@ -76,9 +76,21 @@
       0 0 3px hsl(var(--cream) / 0.8),
       0 0 8px hsl(var(--cream) / 0.5);
   }
+
+  .shadow-emerald {
+    text-shadow: 0 1px 2px hsl(var(--emerald) / 0.2), 0 2px 4px hsl(var(--emerald) / 0.1);
+  }
+
+  .shadow-brown {
+    text-shadow: 0 1px 2px hsl(var(--brown-ink) / 0.15), 0 2px 4px hsl(var(--brown-ink) / 0.1);
+  }
+
+  .shadow-gold {
+    text-shadow: 0 1px 2px hsl(var(--gold) / 0.2), 0 2px 4px hsl(var(--gold) / 0.1);
+  }
 }
 
-/* Paper grain texture overlay */
+/* Paper grain texture overlay - optimized SVG */
 .paper-texture {
   position: relative;
 }
@@ -87,8 +99,9 @@
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  /* Using a more efficient baseFrequency and reduced numOctaves for better performance */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 1;
 }
@@ -104,6 +117,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 3s ease-in-out infinite;
+  will-change: background-position;
 }
 
 @keyframes shimmer {
@@ -166,6 +180,11 @@
   }
 }
 
+.petal-anim {
+  will-change: transform, opacity;
+  animation: petal-fall linear infinite;
+}
+
 @keyframes bloom {
   0% {
     transform: scale(0.3) rotate(-30deg);
@@ -205,6 +224,7 @@
   background: hsl(var(--gold-light));
   border-radius: 50%;
   animation: float 6s ease-in-out infinite;
+  will-change: transform;
   pointer-events: none;
   z-index: 0;
 }

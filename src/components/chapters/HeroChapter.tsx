@@ -37,7 +37,7 @@ const HeroChapter = ({ onEnter }: { onEnter: () => void }) => {
 
           {/* Name in golden calligraphy */}
           <motion.h1
-            className="font-urdu text-5xl md:text-7xl gold-shimmer mb-8 z-10 pt-8 pb-24 leading-[2.2]"
+            className="font-urdu text-5xl md:text-7xl gold-shimmer mb-8 z-10 pt-8 pb-24 leading-[2.2] shadow-gold"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, delay: 1, ease: "easeOut" }}
@@ -47,7 +47,7 @@ const HeroChapter = ({ onEnter }: { onEnter: () => void }) => {
 
           {/* Subtitle */}
           <motion.p
-            className="font-serif-display text-gold-light/80 text-lg md:text-xl italic max-w-md text-center z-10 mb-12"
+            className="font-serif-display text-gold-light/80 text-lg md:text-xl italic max-w-md text-center z-10 mb-12 shadow-gold"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 2, delay: 2.5 }}

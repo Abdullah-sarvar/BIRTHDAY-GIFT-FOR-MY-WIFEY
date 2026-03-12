@@ -23,21 +23,7 @@ const BeginningChapter = () => {
 
   return (
     <section className="relative min-h-screen py-24 px-6 paper-texture overflow-hidden">
-      {/* Golden dust particles */}
-      {Array.from({ length: 12 }).map((_, i) => (
-        <div
-          key={i}
-          className="golden-dust"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 6}s`,
-            animationDuration: `${4 + Math.random() * 4}s`,
-            width: `${2 + Math.random() * 3}px`,
-            height: `${2 + Math.random() * 3}px`,
-          }}
-        />
-      ))}
+
 
       <div className="max-w-2xl mx-auto relative z-10">
         {/* Chapter title */}
@@ -48,8 +34,8 @@ const BeginningChapter = () => {
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">باب اوّل</h2>
-          <p className="font-serif-display text-xl text-brown-ink/70 italic">The Beginning</p>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12 shadow-emerald">باب اوّل</h2>
+          <p className="font-serif-display text-xl text-brown-ink/70 italic shadow-brown">The Beginning</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
 
@@ -64,8 +50,8 @@ const BeginningChapter = () => {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: i * 0.2 }}
             >
-              <p className="font-urdu text-2xl md:text-3xl text-emerald/90 mb-6 drop-shadow-sm text-readable">{line.urdu}</p>
-              <p className="font-serif-body text-brown-ink/80 italic text-sm text-readable">{line.english}</p>
+              <p className="font-urdu text-2xl md:text-3xl text-emerald/90 mb-6 drop-shadow-sm text-readable shadow-emerald">{line.urdu}</p>
+              <p className="font-serif-body text-brown-ink/80 italic text-sm text-readable shadow-brown">{line.english}</p>
             </motion.div>
           ))}
           {/* Ethereal background fading images */}
@@ -110,7 +96,7 @@ const BeginningChapter = () => {
             {favouriteThings.slice(0, revealedCount).map((thing, i) => (
               <motion.p
                 key={i}
-                className="font-serif-body text-brown-ink/80 italic text-lg leading-relaxed text-readable"
+                className="font-serif-body text-brown-ink/80 italic text-lg leading-relaxed text-readable shadow-brown"
                 initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.8 }}

@@ -6,6 +6,7 @@ import WhenIFoundYouChapter from "@/components/chapters/WhenIFoundYouChapter";
 import WomanOfHonourChapter from "@/components/chapters/WomanOfHonourChapter";
 import PrayerChapter from "@/components/chapters/PrayerChapter";
 import TillJannahChapter from "@/components/chapters/TillJannahChapter";
+import GlobalParticles from "@/components/ui/GlobalParticles";
 
 const ChapterDivider = () => (
   <div className="flex items-center justify-center py-16">
@@ -20,6 +21,7 @@ const Index = () => {
 
   return (
     <main className="bg-background min-h-screen">
+      <GlobalParticles />
       <HeroChapter onEnter={() => setEntered(true)} />
 
       {entered && (
@@ -40,7 +42,7 @@ const Index = () => {
 
           {/* Footer */}
           <div className="py-12 text-center">
-            <p className="font-serif-body text-brown-ink/30 text-xs tracking-widest">
+            <p className="font-serif-body text-brown-ink/30 text-xs tracking-widest shadow-brown">
               Written with love. Sealed with dua.
             </p>
           </div>

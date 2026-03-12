@@ -12,10 +12,11 @@ const memories = [
 
 const Petal: React.FC<{ delay: number; left: string }> = ({ delay, left }) => (
   <div
-    className="absolute text-dusty-rose/40 text-lg pointer-events-none select-none"
+    className="absolute text-dusty-rose/40 text-lg pointer-events-none select-none petal-anim"
     style={{
       left,
-      animation: `petal-fall ${8 + Math.random() * 6}s linear ${delay}s infinite`,
+      animationDuration: `${8 + Math.random() * 6}s`,
+      animationDelay: `${delay}s`,
       top: "-5vh",
     }}
   >
@@ -41,8 +42,8 @@ const WhenIFoundYouChapter = () => {
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">باب دوم</h2>
-          <p className="font-serif-display text-xl text-brown-ink/70 italic">When I Found You</p>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12 shadow-emerald">باب دوم</h2>
+          <p className="font-serif-display text-xl text-brown-ink/70 italic shadow-brown">When I Found You</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
 
@@ -67,7 +68,7 @@ const WhenIFoundYouChapter = () => {
 
                 {/* Date */}
                 <span className="font-urdu text-gold text-lg">{memory.date}</span>
-                <h3 className="font-serif-display text-lg text-emerald mt-1 group-hover:text-emerald/80 transition-colors">
+                <h3 className="font-serif-display text-lg text-emerald mt-1 group-hover:text-emerald/80 transition-colors shadow-emerald">
                   {memory.title}
                 </h3>
 
@@ -90,7 +91,7 @@ const WhenIFoundYouChapter = () => {
                         />
                       </div>
                       
-                      <p className="font-serif-body text-brown-ink/80 italic leading-relaxed relative z-10 text-lg text-readable">
+                      <p className="font-serif-body text-brown-ink/80 italic leading-relaxed relative z-10 text-lg text-readable shadow-brown">
                         {memory.detail}
                       </p>
                     </motion.div>

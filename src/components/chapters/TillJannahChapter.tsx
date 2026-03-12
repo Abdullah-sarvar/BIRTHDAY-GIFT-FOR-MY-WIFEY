@@ -28,8 +28,8 @@ const TillJannahChapter = () => {
           transition={{ duration: 1.2 }}
           className="mb-12"
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">آخری باب</h2>
-          <p className="font-serif-display text-xl text-brown-ink/70 italic">Till Jannah</p>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12 shadow-emerald">آخری باب</h2>
+          <p className="font-serif-display text-xl text-brown-ink/70 italic shadow-brown">Till Jannah</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
 
@@ -46,7 +46,7 @@ const TillJannahChapter = () => {
             ہر کہانی کا اختتام نہیں ہوتا،
           </motion.p>
           <motion.p
-            className="font-urdu text-3xl md:text-4xl lg:text-5xl text-emerald leading-relaxed"
+            className="font-urdu text-3xl md:text-4xl lg:text-5xl text-emerald leading-relaxed shadow-emerald"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -57,7 +57,7 @@ const TillJannahChapter = () => {
         </div>
 
         <motion.p
-          className="font-serif-body text-brown-ink/50 italic text-sm mb-12"
+          className="font-serif-body text-brown-ink/50 italic text-sm mb-12 shadow-brown"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -67,7 +67,7 @@ const TillJannahChapter = () => {
         </motion.p>
 
         <motion.h3
-          className="font-serif-display text-2xl md:text-3xl text-emerald mb-16"
+          className="font-serif-display text-2xl md:text-3xl text-emerald mb-16 shadow-emerald"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -149,10 +149,10 @@ const TillJannahChapter = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 2, delay: 0.5 }}
               >
-                <p className="font-urdu text-3xl md:text-4xl gold-shimmer mb-2 pt-4 pb-12 leading-[2]">
+                <p className="font-urdu text-3xl md:text-4xl gold-shimmer mb-2 pt-4 pb-12 leading-[2] shadow-gold">
                   جنّت تک، ان شاء اللہ
                 </p>
-                <p className="font-serif-display text-gold italic text-xl">
+                <p className="font-serif-display text-gold italic text-xl shadow-gold">
                   Till Jannah, InshaAllah.
                 </p>
               </motion.div>

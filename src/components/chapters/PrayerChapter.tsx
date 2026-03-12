@@ -31,8 +31,8 @@ const PrayerChapter = () => {
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
         >
-          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12">باب چہارم</h2>
-          <p className="font-serif-display text-xl text-brown-ink/70 italic">A Prayer for You</p>
+          <h2 className="font-urdu text-4xl md:text-5xl text-emerald mb-12 shadow-emerald">باب چہارم</h2>
+          <p className="font-serif-display text-xl text-brown-ink/70 italic shadow-brown">A Prayer for You</p>
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
 
@@ -56,8 +56,8 @@ const PrayerChapter = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <p className="font-urdu text-xl md:text-2xl text-emerald/90 mb-4">{dua.urdu}</p>
-                <p className="font-serif-body text-brown-ink/50 italic text-xs">{dua.english}</p>
+                <p className="font-urdu text-xl md:text-2xl text-emerald/90 mb-4 shadow-emerald">{dua.urdu}</p>
+                <p className="font-serif-body text-brown-ink/50 italic text-xs shadow-brown">{dua.english}</p>
               </motion.div>
             ))}
           </div>
@@ -75,7 +75,7 @@ const PrayerChapter = () => {
 
           {revealedCount >= duas.length && (
             <motion.p
-              className="text-center font-serif-body text-gold italic text-sm mt-4"
+              className="text-center font-serif-body text-gold italic text-sm mt-4 shadow-gold"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
