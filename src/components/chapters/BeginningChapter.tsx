@@ -59,7 +59,7 @@ const BeginningChapter = () => {
              <EtherealImage
                src="/images/1.jpeg"
                alt="A beautiful memory"
-               className="w-64 md:w-80 absolute -left-12 md:-left-32 top-[10%] opacity-30 mix-blend-multiply"
+               className="w-64 md:w-80 absolute -left-12 md:-left-32 top-[10%] opacity-20 mix-blend-multiply"
                delay={0.5}
              />
              <EtherealImage
