@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import EtherealImage from "../ui/EtherealImage";
 
@@ -73,13 +73,13 @@ const BeginningChapter = () => {
              <EtherealImage
                src="/images/1.jpeg"
                alt="A beautiful memory"
-               className="w-64 h-64 md:w-80 md:h-80 absolute -left-12 md:-left-32 top-[10%] opacity-40 mix-blend-multiply"
+               className="w-64 md:w-80 absolute -left-12 md:-left-32 top-[10%] opacity-40 mix-blend-multiply"
                delay={0.5}
              />
              <EtherealImage
                src="/images/2.jpeg"
                alt="Another beautiful memory"
-               className="w-56 h-56 md:w-72 md:h-72 absolute -right-32 md:-right-80 top-[45%] opacity-40 mix-blend-multiply"
+               className="w-56 md:w-72 absolute -right-32 md:-right-80 top-[45%] opacity-40 mix-blend-multiply"
                delay={1}
              />
           </div>
@@ -93,20 +93,6 @@ const BeginningChapter = () => {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          {/* Third image tied to the reveal section so it moves properly and stays visible */}
-          <div className="absolute inset-x-0 top-0 bottom-0 pointer-events-none -z-10 flex items-center justify-start -translate-x-20 md:-translate-x-48">
-             <EtherealImage
-               src="/images/3.jpeg"
-               alt="A distant memory"
-               className={`w-72 h-72 md:w-96 md:h-96 transition-all duration-1000 ${
-                 revealedCount > 0 
-                   ? "opacity-100 mix-blend-normal scale-105" 
-                   : "opacity-30 mix-blend-multiply scale-100"
-               }`}
-               delay={1.5}
-             />
-          </div>
-
           <p className="font-serif-display text-brown-ink/50 text-sm mb-4 tracking-wide uppercase relative z-10">
             A hidden truth
           </p>
@@ -133,6 +119,25 @@ const BeginningChapter = () => {
               </motion.p>
             ))}
           </div>
+
+          {/* Image 3 now sits at the very end of the chapter as a final visual flourish */}
+          <AnimatePresence>
+            {revealedCount >= favouriteThings.length && (
+              <motion.div 
+                className="mt-16 flex justify-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 2 }}
+              >
+                <EtherealImage
+                  src="/images/3.jpeg"
+                  alt="A final memory"
+                  className="w-full max-w-md opacity-60"
+                  delay={0.5}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </section>

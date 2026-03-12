@@ -29,9 +29,9 @@ const PolaroidPhoto = ({
         boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
       }}
     >
-      <div className="relative w-full aspect-square overflow-hidden mb-4 border border-gold/10 pointer-events-none">
+      <div className="relative w-full overflow-hidden mb-4 border border-gold/10 pointer-events-none">
         <div className="absolute inset-0 bg-brown-ink/5 mix-blend-overlay z-10" />
-        <img src={src} alt={alt} className="w-full h-full object-cover sepia-[0.2]" />
+        <img src={src} alt={alt} className="w-full h-auto object-cover sepia-[0.2]" />
       </div>
       {caption && (
         <p className="font-serif-body text-center text-brown-ink/80 text-sm sm:text-base italic absolute bottom-4 sm:bottom-6 inset-x-0 px-2 pointer-events-none">

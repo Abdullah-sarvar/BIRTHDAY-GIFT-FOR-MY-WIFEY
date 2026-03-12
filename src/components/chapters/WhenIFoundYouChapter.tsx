@@ -81,11 +81,11 @@ const WhenIFoundYouChapter = () => {
                       transition={{ duration: 0.6, ease: "easeInOut" }}
                     >
                       {/* Background ethereal portrait tied to the memory */}
-                      <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 opacity-20 transform translate-x-1/4 -translate-y-1/4 pointer-events-none mix-blend-multiply">
+                      <div className="absolute top-0 right-0 w-48 md:w-64 opacity-20 transform translate-x-1/4 -translate-y-1/4 pointer-events-none mix-blend-multiply">
                         <EtherealImage
                           src={`/images/${(i % 6) + 1}.jpeg`}
                           alt={`Memory of ${memory.title}`}
-                          className="w-full h-full"
+                          className="w-full"
                           delay={0.2}
                         />
                       </div>
