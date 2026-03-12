@@ -90,7 +90,7 @@ const WhenIFoundYouChapter = () => {
                         />
                       </div>
                       
-                      <p className="font-serif-body text-brown-ink/80 italic leading-relaxed relative z-10 text-lg">
+                      <p className="font-serif-body text-brown-ink/80 italic leading-relaxed relative z-10 text-lg text-readable">
                         {memory.detail}
                       </p>
                     </motion.div>

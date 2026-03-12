@@ -64,8 +64,8 @@ const BeginningChapter = () => {
               viewport={{ once: true }}
               transition={{ duration: 1, delay: i * 0.2 }}
             >
-              <p className="font-urdu text-2xl md:text-3xl text-emerald/90 mb-6 drop-shadow-sm">{line.urdu}</p>
-              <p className="font-serif-body text-brown-ink/80 italic text-sm">{line.english}</p>
+              <p className="font-urdu text-2xl md:text-3xl text-emerald/90 mb-6 drop-shadow-sm text-readable">{line.urdu}</p>
+              <p className="font-serif-body text-brown-ink/80 italic text-sm text-readable">{line.english}</p>
             </motion.div>
           ))}
           {/* Ethereal background fading images */}
@@ -73,13 +73,13 @@ const BeginningChapter = () => {
              <EtherealImage
                src="/images/1.jpeg"
                alt="A beautiful memory"
-               className="w-64 md:w-80 absolute -left-12 md:-left-32 top-[10%] opacity-40 mix-blend-multiply"
+               className="w-64 md:w-80 absolute -left-12 md:-left-32 top-[10%] opacity-30 mix-blend-multiply"
                delay={0.5}
              />
              <EtherealImage
                src="/images/2.jpeg"
                alt="Another beautiful memory"
-               className="w-56 md:w-72 absolute -right-32 md:-right-80 top-[45%] opacity-40 mix-blend-multiply"
+               className="w-56 md:w-72 absolute -right-32 md:-right-80 top-[45%] opacity-30 mix-blend-multiply"
                delay={1}
              />
           </div>
@@ -110,7 +110,7 @@ const BeginningChapter = () => {
             {favouriteThings.slice(0, revealedCount).map((thing, i) => (
               <motion.p
                 key={i}
-                className="font-serif-body text-brown-ink/80 italic text-lg leading-relaxed"
+                className="font-serif-body text-brown-ink/80 italic text-lg leading-relaxed text-readable"
                 initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.8 }}

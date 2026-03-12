@@ -68,6 +68,14 @@
   .font-serif-body {
     font-family: 'Lora', serif;
   }
+
+  /* Subtle halo to make text pop against busy backgrounds/images */
+  .text-readable {
+    text-shadow: 
+      0 0 1px hsl(var(--cream)),
+      0 0 3px hsl(var(--cream) / 0.8),
+      0 0 8px hsl(var(--cream) / 0.5);
+  }
 }
 
 /* Paper grain texture overlay */
