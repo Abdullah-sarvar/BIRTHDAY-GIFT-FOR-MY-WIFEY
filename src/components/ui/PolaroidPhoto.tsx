@@ -22,10 +22,11 @@ const PolaroidPhoto = ({
       initial={{ opacity: 0, y: 50, rotate: rotation - 5 }}
       whileInView={{ opacity: 1, y: 0, rotate: rotation }}
       whileHover={{ y: -10, rotate: rotation > 0 ? rotation + 2 : rotation - 2, scale: 1.05 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 1, delay }}
       className={`bg-cream p-3 pb-12 sm:p-4 sm:pb-16 shadow-xl rounded-sm absolute ${className}`}
       style={{
+        willChange: "opacity, transform",
         boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
       }}
     >
