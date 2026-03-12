@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import EtherealImage from "../ui/EtherealImage";
 
 const poeticLines = [
   { urdu: "تمہاری آنکھوں میں سکون ہے", english: "In your eyes, there is peace." },
@@ -52,32 +53,61 @@ const BeginningChapter = () => {
           <div className="w-24 h-px bg-gold/40 mx-auto mt-6" />
         </motion.div>
 
-        {/* Poetic lines */}
-        <div className="space-y-14 mb-20">
+        {/* Poetic lines and Images */}
+        <div className="space-y-24 mb-32 relative">
           {poeticLines.map((line, i) => (
             <motion.div
               key={i}
-              className="text-center"
+              className="text-center relative z-10"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: i * 0.2 }}
             >
-              <p className="font-urdu text-2xl md:text-3xl text-emerald/90 mb-6">{line.urdu}</p>
-              <p className="font-serif-body text-brown-ink/60 italic text-sm">{line.english}</p>
+              <p className="font-urdu text-2xl md:text-3xl text-emerald/90 mb-6 drop-shadow-sm">{line.urdu}</p>
+              <p className="font-serif-body text-brown-ink/80 italic text-sm">{line.english}</p>
             </motion.div>
           ))}
+          {/* Ethereal background fading images */}
+          <div className="absolute inset-0 pointer-events-none -translate-y-12">
+             <EtherealImage
+               src="/images/1.jpeg"
+               alt="A beautiful memory"
+               className="w-64 h-64 md:w-80 md:h-80 absolute -left-12 md:-left-32 top-[10%] opacity-40 mix-blend-multiply"
+               delay={0.5}
+             />
+             <EtherealImage
+               src="/images/2.jpeg"
+               alt="Another beautiful memory"
+               className="w-56 h-56 md:w-72 md:h-72 absolute -right-32 md:-right-80 top-[45%] opacity-40 mix-blend-multiply"
+               delay={1}
+             />
+          </div>
         </div>
 
         {/* Reveal button */}
         <motion.div
-          className="text-center"
+          className="text-center relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <p className="font-serif-display text-brown-ink/50 text-sm mb-4 tracking-wide uppercase">
+          {/* Third image tied to the reveal section so it moves properly and stays visible */}
+          <div className="absolute inset-x-0 top-0 bottom-0 pointer-events-none -z-10 flex items-center justify-start -translate-x-20 md:-translate-x-48">
+             <EtherealImage
+               src="/images/3.jpeg"
+               alt="A distant memory"
+               className={`w-72 h-72 md:w-96 md:h-96 transition-all duration-1000 ${
+                 revealedCount > 0 
+                   ? "opacity-100 mix-blend-normal scale-105" 
+                   : "opacity-30 mix-blend-multiply scale-100"
+               }`}
+               delay={1.5}
+             />
+          </div>
+
+          <p className="font-serif-display text-brown-ink/50 text-sm mb-4 tracking-wide uppercase relative z-10">
             A hidden truth
           </p>
           <button
@@ -90,7 +120,7 @@ const BeginningChapter = () => {
               : "You've seen them all ✦"}
           </button>
 
-          <div className="mt-8 space-y-4">
+          <div className="mt-8 space-y-4 relative z-10">
             {favouriteThings.slice(0, revealedCount).map((thing, i) => (
               <motion.p
                 key={i}

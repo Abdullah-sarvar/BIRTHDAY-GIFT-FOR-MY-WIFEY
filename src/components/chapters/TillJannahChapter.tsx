@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import PolaroidPhoto from "../ui/PolaroidPhoto";
 
 const TillJannahChapter = () => {
   const [revealed, setRevealed] = useState(false);
@@ -91,10 +92,10 @@ const TillJannahChapter = () => {
 
         <AnimatePresence>
           {revealed && (
-            <>
+              <>
               {/* Golden light spread */}
               <motion.div
-                className="fixed inset-0 z-40 pointer-events-none"
+                className="fixed inset-0 z-0 pointer-events-none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2 }}
@@ -103,8 +104,47 @@ const TillJannahChapter = () => {
                 }}
               />
 
+              {/* Scattered Polaroids */}
+              <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                <PolaroidPhoto
+                  src="/images/4.jpeg"
+                  alt="A beautiful moment"
+                  caption="Forever."
+                  className="w-48 md:w-64 left-4 md:left-[10%] top-[20%] md:top-[15%]"
+                  rotation={-6}
+                  delay={1}
+                />
+                
+                <PolaroidPhoto
+                  src="/images/5.jpeg"
+                  alt="A cherished memory"
+                  caption="My Queen"
+                  className="w-56 md:w-72 right-2 md:right-[5%] top-[10%] md:top-[5%]"
+                  rotation={8}
+                  delay={1.5}
+                />
+                
+                <PolaroidPhoto
+                  src="/images/6.jpeg"
+                  alt="A lovely day"
+                  caption="InshaAllah"
+                  className="w-52 md:w-64 -left-12 md:left-[5%] bottom-[10%] md:bottom-[15%]"
+                  rotation={-4}
+                  delay={2}
+                />
+                
+                <PolaroidPhoto
+                  src="/images/1.jpeg"
+                  alt="Always you"
+                  caption="❤️"
+                  className="w-48 md:w-56 right-8 md:right-[15%] bottom-[15%] md:bottom-[20%]"
+                  rotation={12}
+                  delay={2.5}
+                />
+              </div>
+
               <motion.div
-                className="mt-8"
+                className="mt-8 relative z-10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 2, delay: 0.5 }}

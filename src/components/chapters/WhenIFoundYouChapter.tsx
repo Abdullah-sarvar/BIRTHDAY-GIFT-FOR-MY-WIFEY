@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import React, { useState } from "react";
+import EtherealImage from "../ui/EtherealImage";
 
 const memories = [
   { date: "۲۰۲۳", title: "The First Meeting", detail: "Some moments are written by fate before we even know it. That day, destiny smiled." },
@@ -9,7 +10,7 @@ const memories = [
   { date: "۲۰۲۵", title: "Still Falling", detail: "They say love fades. But ours deepens with every chapter. Like a river finding the sea." },
 ];
 
-const Petal = ({ delay, left }: { delay: number; left: string }) => (
+const Petal: React.FC<{ delay: number; left: string }> = ({ delay, left }) => (
   <div
     className="absolute text-dusty-rose/40 text-lg pointer-events-none select-none"
     style={{
@@ -70,16 +71,26 @@ const WhenIFoundYouChapter = () => {
                   {memory.title}
                 </h3>
 
-                <AnimatePresence>
+                <AnimatePresence mode="sync">
                   {activeMemory === i && (
                     <motion.div
-                      className="mt-4 p-6 bg-cream/80 rounded-lg border border-gold/20"
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.5 }}
+                      className="mt-6 p-6 md:p-8 bg-cream/80 rounded-lg border border-gold/20 relative overflow-hidden group shadow-sm"
+                      initial={{ opacity: 0, height: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, height: "auto", scale: 1 }}
+                      exit={{ opacity: 0, height: 0, scale: 0.95 }}
+                      transition={{ duration: 0.6, ease: "easeInOut" }}
                     >
-                      <p className="font-serif-body text-brown-ink/70 italic leading-relaxed">
+                      {/* Background ethereal portrait tied to the memory */}
+                      <div className="absolute top-0 right-0 w-48 h-48 md:w-64 md:h-64 opacity-20 transform translate-x-1/4 -translate-y-1/4 pointer-events-none mix-blend-multiply">
+                        <EtherealImage
+                          src={`/images/${(i % 6) + 1}.jpeg`}
+                          alt={`Memory of ${memory.title}`}
+                          className="w-full h-full"
+                          delay={0.2}
+                        />
+                      </div>
+                      
+                      <p className="font-serif-body text-brown-ink/80 italic leading-relaxed relative z-10 text-lg">
                         {memory.detail}
                       </p>
                     </motion.div>
